@@ -4,7 +4,7 @@ class ApplicationMailer < ActionMailer::Base
 
   def send_email(user)
     email_body = user.name + ' ' + user.email + ' ' + user.about
-    mail(to: 'kaalm1@gmail.com',
+    mail(to: Figaro.env.gmail_email,
          from: user.email,
          body: email_body,
          content_type: "text/html",
